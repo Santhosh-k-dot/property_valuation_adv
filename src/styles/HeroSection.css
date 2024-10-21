@@ -1,0 +1,244 @@
+/* Styles for HeroSection */
+.hero-section {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e0f7fa, #80cbc4); /* Updated gradient background */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-image {
+    transition: opacity 2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 0;
+}
+
+.hero-image.fade-in {
+    opacity: 0.5;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-text {
+    position: absolute;
+    top: 35%; /* Maintain 35% margin for all devices */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease-in-out;
+    font-size: 36px; /* Adjust font size for large screens */
+    line-height: 1.4;
+}
+
+.highlight {
+    color: #e67e22; /* Softened the highlight color to orange */
+}
+
+.cta-button {
+    background: linear-gradient(45deg, #16a085, #27ae60);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Add margin for spacing */
+    font-size: 18px; /* Slightly larger font size for better readability */
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out, background-color 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #2980B9;
+    transform: scale(1.08);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg, #1abc9c, #3498db);
+}
+
+.cta-button:focus {
+    outline: 2px dashed #ffffff;
+    outline-offset: 4px;
+}
+
+/* New container below the button */
+.info-container {
+    margin-top: 20px; /* Space above the container */
+    padding: 10px 20px; /* Padding for the container */
+    background: rgba(255, 255, 255, 0.2); /* Slight background for visibility */
+    border-radius: 5px;
+    max-width: 600px; /* Max width for the container */
+    margin-left: auto; /* Center alignment */
+    margin-right: auto; /* Center alignment */
+    color: white; /* Text color */
+    font-size: 18px; /* Font size for the info container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft box-shadow to lift it off the background */
+}
+
+/* Bubbles styles */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 123, 255, 0.5);
+    animation: bubble-animation 15s linear infinite;
+    opacity: 0.6;
+}
+
+.bubble:nth-child(odd) {
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55); /* More bouncy effect */
+}
+
+.bubble:nth-child(even) {
+    animation-timing-function: ease-in-out; /* Smooth easing for even bubbles */
+}
+
+.bubble:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    bottom: -60px;
+    left: 20%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    bottom: -70px;
+    left: 50%;
+    animation-duration: 15s;
+    animation-delay: 4s;
+}
+
+.bubble:nth-child(3) {
+    width: 20px;
+    height: 20px;
+    bottom: -30px;
+    left: 70%;
+    animation-duration: 10s;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(4) {
+    width: 80px;
+    height: 80px;
+    bottom: -90px;
+    left: 30%;
+    animation-duration: 20s;
+    animation-delay: 6s;
+}
+
+.bubble:nth-child(5) {
+    width: 50px;
+    height: 50px;
+    bottom: -60px;
+    left: 10%;
+    animation-duration: 18s;
+    animation-delay: 3s;
+}
+
+.bubble:nth-child(6) {
+    width: 30px;
+    height: 30px;
+    bottom: -40px;
+    left: 80%;
+    animation-duration: 14s;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(7) {
+    width: 70px;
+    height: 70px;
+    bottom: -80px;
+    left: 60%;
+    animation-duration: 22s;
+    animation-delay: 5s;
+}
+
+@keyframes bubble-animation {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-200px) scale(1.1);
+    }
+    100% {
+        transform: translateY(-800px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-text {
+        top: 35%; /* Maintain 35% margin */
+        font-size: 24px; /* Adjusted font size for smaller screens */
+    }
+    
+    .info-container {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 5px 15px; /* Adjust padding for smaller screens */
+    }
+    
+    .cta-button {
+        padding: 8px 16px; /* Adjust button padding for smaller screens */
+        font-size: 14px; /* Adjust button font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text {
+        top: 35%; /* Maintain 35% margin on very small screens */
+        font-size: 20px; /* Adjust font size further for smaller devices */
+    }
+    
+    .info-container {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+    
+    .cta-button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
